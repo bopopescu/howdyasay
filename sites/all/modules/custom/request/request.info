@@ -1,0 +1,5 @@
+name = audio request
+description = send audio request
+package = custom
+core = 7.x
+files[]= request.module

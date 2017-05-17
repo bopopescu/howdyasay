@@ -1,0 +1,90 @@
+<?php
+// Required if your environment does not handle autoloading
+require __DIR__ . '/vendor/autoload.php';
+
+// Use the REST API Client to make requests to the Twilio REST API
+use Twilio\Rest\Client;
+
+function request_menu(){
+  $items = array();
+  $items['node']= array(
+    'title'=>'Create your language request',
+    'description' => 'Your adquaintance will receive your request via sms and will be prompted to record his/her voice.',
+    'page callback'=> 'drupal_get_form',
+    'page arguments'=> array('request_form'),
+    'access callback'=> TRUE,
+    'type'=> MENU_NORMAL_ITEM,
+  );
+  $items['request_confirm']= array(
+    'title'=> 'Your message was sent',
+    'page callback'=> 'request_confirm',
+    'access callback'=> TRUE,
+    'type'=> MENU_CALLBACK,
+  );
+  return $items;
+}
+
+function request_form(){
+  $form['text']=array(
+    '#title'=> 'Your adquaintance will receive your request via sms and will be prompted to record his/her voice.',
+    '#type'=> 'item',
+  );
+  $form['request_message']= array(
+    '#type'=>'textfield',
+    '#title'=> 'Sentence to be translated',
+    '#description'=> t('Enter the phrase/sentence you want translated'),
+    '#maxlength' => 50,
+    '#required'=> TRUE,
+  );
+  $form['request_language']= array(
+    '#type'=>'textfield',
+    '#title'=> 'Into what language?',
+    '#description'=> t('Enter the language'),
+    '#maxlength' => 50,
+    '#required'=> TRUE,
+  );
+  $form['request_number']= array(
+    '#type'=>'textfield',
+    '#title'=> 'Phone number',
+    '#description'=> t('Enter your requestee phone number'),
+    '#element_validate'=>array('element_validate_number'),
+    '#required'=> TRUE,
+  );
+  $form['request_button']= array(
+    '#type'=>'submit',
+    '#value'=>'Send your request',
+  );
+  return $form;
+}
+function request_form_submit($form, &$form_state)
+{
+  global $user;
+  $phone_number = $form_state['values']['request_number'];
+  $message = $form_state['values']['request_message'];
+  $language = $form_state['values']['request_language'];
+
+ // Your Account SID and Auth Token from twilio.com/console
+ $sid = 'AC81d2c336e9286756b119168d8acd700e';
+ $token = 'c1d2db50fd9daa804f52a17a817f6665';
+ $client = new Client($sid, $token);
+
+ // Use the client to do fun stuff like send text messages!
+ $client->messages->create(
+     // the number you'd like to send the message to
+     '+1'.$phone_number,
+     array(
+         // A Twilio phone number you purchased at twilio.com/console
+         'from' => '+19718017937',
+         // the body of the text message you'd like to send
+         'body' => $user->name.' wonders how do you say: '  .$message.  ' (in '  .$language.  '.) Click: https://www.google.com/ to start recording.',
+        //  'mediaUrl' => array("https://demo.twilio.com/owl.png","https://demo.twilio.com/logo.png"),
+     )
+ );
+ // $_SESSION['request_results']= $request_results;
+ $form_state['redirect']= 'request_confirm';
+}
+function request_confirm()
+{
+  // $request_results= $_SESSION['request_results'];
+  return 'You will be notified by text message when your recording is saved in your audio collection. If you have not yet added your phone number, you can easily do it by entering it in your edit/account. ';
+}
