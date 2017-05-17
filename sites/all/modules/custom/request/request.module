@@ -76,7 +76,7 @@ function request_form_submit($form, &$form_state)
          // A Twilio phone number you purchased at twilio.com/console
          'from' => '+19718017937',
          // the body of the text message you'd like to send
-         'body' => $user->name.' wonders how do you say: '  .$message.  ' (in '  .$language.  '.) Click: https://www.google.com/ to start recording.',
+         'body' => $user->name.' wonders how do you say: '  .$message.  ' (in '  .$language.  '.) Click: http://dev-howdyasay.pantheonsite.io/node/add/create-audio to start recording.',
         //  'mediaUrl' => array("https://demo.twilio.com/owl.png","https://demo.twilio.com/logo.png"),
      )
  );
