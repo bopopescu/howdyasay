@@ -1,5 +1,6 @@
 {
     "require": {
-        "twilio/sdk": "^5.8"
+        "twilio/sdk": "^5.8",
+        "google/cloud": "^0.29.0"
     }
 }
