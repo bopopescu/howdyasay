@@ -1,5 +1,6 @@
 <div id="auth_box" class="login">
   <div id="top_part">
+    <h1 class='howdyasay'><?php print t('Howdyasay'); ?></h1>
     <h1 id="the_logo">
       <a href="<?php print url('<front>'); ?>">
         <img src="<?php print $logo; ?>" alt="<?php print $site_name; ?>">
@@ -11,7 +12,7 @@
     <h2 class="title"><?php print $title; ?></h2>
 
     <?php print $messages; ?>
-    
+
     <?php print render($page['content']); ?>
   </div>
 
