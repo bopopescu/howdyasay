@@ -15,14 +15,23 @@ This app is intended to replace boring audio tapes or language laboratories that
 * The user logs in and sends a request to the teacher.
 ![screenshot](./sites/screenshots/request.png)
 * Request is sent to the teacher via URL or text message.
-![screenshot](./sites/screenshots/text.jpg)
+
+![screenshot](./sites/screenshots/text.JPG)
+
 * The teacher is directed by clicking on the URL to a page where she is prompted to record audio.
+
 ![screenshot](./sites/screenshots/prompt.png)
+
 * Audio is saved and routed into the user’s account.
+
 ![screenshot](./sites/screenshots/collection.png)
+
 * The user gets notified when the teachers record the audio for him.
+
 ![screenshot](./sites/screenshots/notified.png)
+
 * The user manages the organization of the audio collection.
+
 ![screenshot](./sites/screenshots/search.png)
 
 
