@@ -46,7 +46,7 @@ You will need the following things properly installed on your computer.
 * `set the Apache Port to 8888 (MAMP)`
 * `set the MySQL Port to 8889 (MAMP)`
 * `set news-aggregator folder as your Document Root (MAMP)`
-* `open the phpMyAdmin and import the database backup file (news-aggregator/sites/db-backup)`
+* `open the phpMyAdmin and import the database backup file (howdyasay/sites/db-backup)`
 * `go to privilege and create user (see Sample Database section)`
 * `after imported successfully, go to localhost:8888`
 * `get API key from twilio`
