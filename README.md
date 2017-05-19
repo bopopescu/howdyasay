@@ -65,7 +65,7 @@ You will need the following things properly installed on your computer.
  * Recorder.js
 
 ## License
- _Copyright (c) 2017 **Sean Peterson, Stella Huayhuaca, and Koji Nakagawa**_
+ _Copyright (c) 2017 ** Stella Huayhuaca**_
 
  _Permission is hereby granted, free of charge, to any person obtaining a copy
  of this software and associated documentation files (the "Software"), to deal
