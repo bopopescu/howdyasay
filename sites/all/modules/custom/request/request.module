@@ -63,9 +63,9 @@ function request_form_submit($form, &$form_state)
   $message = $form_state['values']['request_message'];
   $language = $form_state['values']['request_language'];
 
- // Your Account SID and Auth Token from twilio.com/console
- $sid = 'AC81d2c336e9286756b119168d8acd700e';
- $token = 'c1d2db50fd9daa804f52a17a817f6665';
+ // Your Account SID and Auth Token fromAC81d2c336e9286756b119168d8acd700e twilio.com/console
+ $sid = 'YOURID';
+ $token = 'YOURTOKEN';
  $client = new Client($sid, $token);
 
  // Use the client to do fun stuff like send text messages!
